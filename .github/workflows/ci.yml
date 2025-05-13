@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: setar variavel
         id: set-version
-        run: echo "::set-output name=version::1.2"
+        run: echo "version=1.2" >> $GITHUB_OUTPUT
 
   deploy:
     runs-on: ubuntu-latest
@@ -41,7 +41,7 @@ jobs:
     steps:
       - name: recuperar versao
         id: get-version
-        run: echo "recuperando variavel"
+        run: echo "Versão recuperada: ${{ needs.generate.outputs.output1 }}"
       
       
         
