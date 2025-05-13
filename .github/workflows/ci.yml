@@ -39,5 +39,5 @@ jobs:
     needs: generate
     steps:
       - name: Recuperar versão e usar output do job anterior
-        run: echo "teste de recuperação de versão ${{needs.generate.outputs.output1}}"
+        run: echo "versão ${{needs.generate.outputs.output1}}"
 
