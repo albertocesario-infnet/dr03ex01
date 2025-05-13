@@ -28,12 +28,11 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     needs: build
-    
     outputs:
       output1: ${{ steps.set-version.outputs.version }}
     steps:
       - name: setar variavel
-      - id: set-version
+        id: set-version
         run: echo "::set-output name=version::1.2"
 
   deploy:
@@ -41,7 +40,7 @@ jobs:
     needs: generate
     steps:
       - name: recuperar versao
-      - id: get-version
+        id: get-version
         run: echo "recuperando variavel"
       
       
