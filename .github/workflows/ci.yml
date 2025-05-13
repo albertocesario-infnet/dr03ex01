@@ -41,7 +41,7 @@ jobs:
     steps:
       - name: recuperar versao
         id: get-version
-        run: echo "Versão recuperada: ${{ needs.generate.outputs.output1 }}"
+        run: echo "Versão recuperada: "
       
       
         
