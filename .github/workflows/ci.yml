@@ -49,5 +49,5 @@ jobs:
       APP_VERSION: ${{ needs.generate.outputs.version }}
     steps:
       - name: Recuperar versão e usar output do job anterior
-        run: echo "Versão ${APP_VERSION} no ambiente ${env.APP_ENV}"
+        run: echo "Versão ${APP_VERSION} no ambiente ${{env.APP_ENV}}"
 
