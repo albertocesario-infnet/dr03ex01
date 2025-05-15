@@ -28,21 +28,26 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     outputs:
-      output1: ${{ steps.set-version.outputs.version }}
+      version: ${{ steps.set-version.outputs.version }}
     steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+        
       - name: Setar variável
         id: set-version
         run: echo "version=1.2" >> $GITHUB_OUTPUT
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: generate
-    steps:
-      - name: Recuperar versão e usar output do job anterior
-        run: echo "versão ${{needs.generate.outputs.output1}}"
 
       - name: Variavel de ambiente
         run: |
           echo "APP_ENV=production" >> $GITHUB_OUTPUT
           echo "${APP_ENV}"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: generate
+    env:
+      VERSION: ${{ steps.generate.outputs.version }}
+    steps:
+      - name: Recuperar versão e usar output do job anterior
+        run: echo "Versão ${{VERSION}} no ambiente ${APP_ENV}"
 
