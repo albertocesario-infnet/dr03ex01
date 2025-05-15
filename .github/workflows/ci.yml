@@ -41,3 +41,8 @@ jobs:
       - name: Recuperar versão e usar output do job anterior
         run: echo "versão ${{needs.generate.outputs.output1}}"
 
+      - name: Variavel de ambiente
+        run: |
+          echo "APP_ENV=production" >> $GITHUB_OUTPUT
+          echo "${APP_ENV}"
+
