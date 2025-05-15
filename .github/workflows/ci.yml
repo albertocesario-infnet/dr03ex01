@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
+
+env:
+  APP_ENV: Tests
   
 jobs:
 
@@ -40,6 +43,7 @@ jobs:
       - name: Variavel de ambiente
         run: |
           echo "APP_ENV=Production" >> $GITHUB_OUTPUT
+          export APP_ENV="Production"
           echo "${APP_ENV}"
 
   deploy:
