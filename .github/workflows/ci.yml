@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  APP_ENV: APP TESTES
+  APP_ENV: Tests
   
 jobs:
 
@@ -42,7 +42,7 @@ jobs:
 
       - name: Variavel de ambiente
         run: |
-          echo "APP_ENV=production" >> $GITHUB_OUTPUT
+          echo "APP_ENV=Production" >> $GITHUB_OUTPUT
           echo "${APP_ENV}"
 
   deploy:
